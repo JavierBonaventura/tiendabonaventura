@@ -1,13 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Entregable numero 1 Clase 2 de ReactJs
+          Entregable numero 2 Clase 3 de ReactJs
         </p>
         <a
           className="App-link"
