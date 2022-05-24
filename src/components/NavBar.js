@@ -1,9 +1,11 @@
 import "../bootstrap.min.css";
+import logo from '../logo.svg';
 
 function NavBar() {
   return (
     
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+        <img src={logo} className="App-logo" alt="logo" width={100}/>
       <a className="navbar-brand" href="#">CODERHOUSE</a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
