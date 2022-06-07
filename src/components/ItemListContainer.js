@@ -30,7 +30,7 @@ function ItemListContainer(props) {
       setResult(result);
     })
     .catch((error) => {
-      setError(true);
+      setError(error);
       console.log(error);
     })
     .finally(() => {

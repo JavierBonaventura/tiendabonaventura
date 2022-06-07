@@ -7,7 +7,7 @@ export default function ItemList(props) {
       <div className="d-flex justify-content-center flex-wrap">
         {props.products &&
          props.products.map((product) => (
-            <Item product={product}/>
+            <Item key={product.id} product={product}/>
           ))}
       </div>
     </>

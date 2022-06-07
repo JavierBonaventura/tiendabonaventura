@@ -26,7 +26,7 @@ function NavBar() {
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
             <a className="nav-link" href="#">
-              Entregable 5 <span className="sr-only">(current)</span>
+              Entregable 6 <span className="sr-only">(current)</span>
             </a>
           </li>
           <li className="nav-item">
