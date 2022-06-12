@@ -1,18 +1,29 @@
-import "./App.css";
-
 import React from "react";
-import NavBar from "./components/NavBar";
-import ItemListContainer from "./components/ItemListContainer";
-import ItemCount from "./components/ItemCount";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
 import ItemDetailContainer from "./components/ItemDetailContainer";
+import ItemListContainer from "./components/ItemListContainer";
+import NavBar from "./components/NavBar";
+
+
 
 function App() {
   return (
     <>
-      <NavBar />
-      <ItemDetailContainer/>
-      {/* <ItemListContainer greeting="<CODERHOUSE> REACT!!!" />
-      <ItemCount stock={5} initial={1} /> */}
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route
+            path="/"
+            element={<ItemListContainer greeting="Bienvenido a BikeShop" />}
+          />
+          <Route
+            path="/category/:id"
+            element={<ItemListContainer />}
+          />
+          <Route path="/item/:id" element={<ItemDetailContainer />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

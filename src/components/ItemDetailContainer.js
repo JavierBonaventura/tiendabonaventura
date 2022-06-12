@@ -1,30 +1,54 @@
-import React, { useEffect, useState } from "react";
-import ItemDetail from "./ItemDetail";
+import { useEffect, useState } from "react";
+import ItemList from "./ItemList";
+import logo from "../logo.svg";
+import BasePoroductos from "./BaseProductos";
+import { useParams } from "react-router-dom";
+import ItemDetail from './ItemDetail';
 
-export default function ItemDetailContainer(props) {
-  const [isLoading, setIsLoading] = useState(true);
-  const [personaje, setPersonaje] = useState({});
+function ItemDetailContainer(props) {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [result, setResult] = useState([]);
+  const { id } = useParams();
+
   useEffect(() => {
-    fetch("https://rickandmortyapi.com/api/character/")
-      .then((res) => res.json())
-      .then((res) => setPersonaje(res.results[0]));
-    setTimeout(function () {
-      setIsLoading(false);
-    }, 2000);
-  }, []);
+    const products = new Promise((res, rej) => {
+      setTimeout(() => {
+        res(BasePoroductos)
+      }, 20);
+    });
 
-  console.log(personaje);
-  if (isLoading) {
-    return (
-      <div className="App">
-        <h1>Cargando...</h1>
-      </div>
-    );
-  }
+    products
+      .then((result) => {
+        setResult(result);
+      })
+      .catch((error) => {
+        setError(error);
+        console.log(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [id]);
+
+
+console.log(result)
 
   return (
-    <div className="d-flex justify-content-center p-3">
-      <ItemDetail personaje={personaje} />
+    <>
+     <div className="d-flex justify-content-center">
+        {loading && <img src={logo} className="App-logo primary" alt="logo" />}
+      </div>
+      <div className="d-flex justify-content-center">
+        {loading && <h3>Cargando ...</h3>}
+      </div>
+
+      
+         <div className="d-flex justify-content-center p-3">
+         {result &&  <ItemDetail product={result[id]} />}
     </div>
+    </>
   );
 }
+
+export default ItemDetailContainer;

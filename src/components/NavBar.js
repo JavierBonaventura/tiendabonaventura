@@ -1,15 +1,18 @@
+import React from "react";
+import { Link } from "react-router-dom";
 import "../bootstrap.min.css";
 import logo from "../logo.svg";
-import React from "react";
 import CartWidget from "./CartWidget";
 
-function NavBar() {
+function NavBar(props) {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
       <img src={logo} className="" alt="logo" width={50} />
-      <a className="navbar-brand" href="#">
-        CODERHOUSE
-      </a>
+
+      <Link to="/" className="navbar-brand">
+        BikeShop
+      </Link>
+
       <button
         className="navbar-toggler"
         type="button"
@@ -24,29 +27,25 @@ function NavBar() {
 
       <div className="collapse navbar-collapse" id="navbarsExample03">
         <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <a className="nav-link" href="#">
-              Entregable 6 <span className="sr-only">(current)</span>
-            </a>
+          <li className="nav-item active"></li>
+          <li className="nav-item">
+            <Link to="/category/Bicicletas" className="nav-link">
+              Biciletas
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              Vinculo 1
-            </a>
+            <Link to="/category/Indumentaria" className="nav-link">
+              Indumentaria
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              Vinculo 2
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">
-              Vinculo 3
-            </a>
+            <Link to="/category/Velocimetro" className="nav-link">
+              Ciclocomputadores
+            </Link>
           </li>
         </ul>
       </div>
-      <CartWidget enCarrito="4"/>
+      <CartWidget enCarrito="4" />
     </nav>
   );
 }

@@ -1,20 +1,38 @@
-import React from "react";
+
+
+import React, { useState } from "react";
 
 export default function ItemDetail(props) {
+  const [contador, setContador] = useState(1);
+ 
+  const incrementar= () => {
+    setContador(contador + 1);
+  };
+
   return (
     <>
-      <div className="card border border-dark p-3">
-        <img
-          className="bd-placeholder-img card-img-top"
-          src={props.personaje.image}
-        ></img>
-        <h2 className="text-center">{props.personaje.name}</h2>
-        <div className="card-body">
-          <h5 className="card-title">Gender: {props.personaje.gender}</h5>
-          <p className="card-text">Created: {props.personaje.created}</p>
-          <p className="card-text">Specie: {props.personaje.species}</p>
+      {props.product && (
+        <div className="card border border-dark p-3 w-25">
+          <img
+            className="bd-placeholder-img card-img-top"
+            src={props.product.pictureUrl}
+          ></img>
+
+          <h2 className="text-center">{props.product.title}</h2>
+
+          <div className="card-body">
+            <h5 className="card-title">Categoria: {props.product.category}</h5>
+
+            <p className="card-text">Precio: $ {props.product.price}</p>
+            <a
+              href="#"
+              className= "col-md-8 offset-md-2 btn btn-primary" 
+              onClick={() => incrementar()}
+            >Agregar al Carrito   </a>
+          
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
