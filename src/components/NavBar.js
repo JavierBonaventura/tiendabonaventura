@@ -40,7 +40,7 @@ function NavBar(props) {
           </li>
           <li className="nav-item">
             <Link to="/category/Velocimetro" className="nav-link">
-              Ciclocomputadores
+              Velocimetros
             </Link>
           </li>
         </ul>
