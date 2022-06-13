@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import ItemList from "./ItemList";
+import { useParams } from "react-router-dom";
 import logo from "../logo.svg";
 import BasePoroductos from "./BaseProductos";
-import { useParams } from "react-router-dom";
 import ItemDetail from './ItemDetail';
 
-function ItemDetailContainer(props) {
+function ItemDetailContainer() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [result, setResult] = useState([]);
@@ -15,7 +14,7 @@ function ItemDetailContainer(props) {
     const products = new Promise((res, rej) => {
       setTimeout(() => {
         res(BasePoroductos)
-      }, 20);
+      }, 2000);
     });
 
     products

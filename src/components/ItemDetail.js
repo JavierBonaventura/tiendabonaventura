@@ -1,11 +1,9 @@
-
-
-import React, { useState } from "react";
+import { useState } from "react";
 
 export default function ItemDetail(props) {
   const [contador, setContador] = useState(1);
- 
-  const incrementar= () => {
+
+  const incrementar = () => {
     setContador(contador + 1);
   };
 
@@ -26,10 +24,11 @@ export default function ItemDetail(props) {
             <p className="card-text">Precio: $ {props.product.price}</p>
             <a
               href="#"
-              className= "col-md-8 offset-md-2 btn btn-primary" 
+              className="col-md-8 offset-md-2 btn btn-primary"
               onClick={() => incrementar()}
-            >Agregar al Carrito   </a>
-          
+            >
+              Agregar al Carrito{" "}
+            </a>
           </div>
         </div>
       )}

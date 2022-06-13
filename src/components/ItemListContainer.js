@@ -25,7 +25,7 @@ function ItemListContainer(props) {
     const products = new Promise((res, rej) => {
       setTimeout(() => {
         res(BasePoroductos);
-      }, 30);
+      }, 2000);
     });
 
     products

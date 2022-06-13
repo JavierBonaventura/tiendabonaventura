@@ -4,7 +4,7 @@ import "../bootstrap.min.css";
 import logo from "../logo.svg";
 import CartWidget from "./CartWidget";
 
-function NavBar(props) {
+function NavBar() {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
       <img src={logo} className="" alt="logo" width={50} />
