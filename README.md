@@ -16,3 +16,5 @@ Inicia la aplicacion en modo desarrollo en [http://localhost:3000](http://localh
 
 Accediendo directamente al link https://tiendabonaventura.vercel.app/ podes ver la aplicacion funcionando
 
+## GIF en /public
+
