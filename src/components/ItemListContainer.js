@@ -19,13 +19,13 @@ function ItemListContainer(props) {
         (categoria) => categoria.category == id
       ));
   id == undefined ? (titulo = props.greeting) : (titulo = id);
-  console.log(titulo);
+
 
   useEffect(() => {
     const products = new Promise((res, rej) => {
       setTimeout(() => {
         res(BasePoroductos);
-      }, 2000);
+      }, 20);
     });
 
     products

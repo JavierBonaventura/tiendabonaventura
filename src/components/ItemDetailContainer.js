@@ -14,12 +14,13 @@ function ItemDetailContainer() {
     const products = new Promise((res, rej) => {
       setTimeout(() => {
         res(BasePoroductos)
-      }, 2000);
+      }, 20);
     });
 
     products
       .then((result) => {
         setResult(result);
+        
       })
       .catch((error) => {
         setError(error);
@@ -30,8 +31,9 @@ function ItemDetailContainer() {
       });
   }, [id]);
 
+  const productFiltered = result.find(
+    (productFilter) => productFilter.id === id)
 
-console.log(result)
 
   return (
     <>
@@ -44,7 +46,7 @@ console.log(result)
 
       
          <div className="d-flex justify-content-center p-3">
-         {result &&  <ItemDetail product={result[id]} />}
+         {result &&  <ItemDetail product={productFiltered} />}
     </div>
     </>
   );
