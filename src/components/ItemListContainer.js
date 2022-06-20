@@ -20,12 +20,11 @@ function ItemListContainer(props) {
       ));
   id == undefined ? (titulo = props.greeting) : (titulo = id);
 
-
   useEffect(() => {
     const products = new Promise((res, rej) => {
       setTimeout(() => {
         res(BasePoroductos);
-      }, 20);
+      }, 2000);
     });
 
     products

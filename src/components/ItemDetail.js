@@ -1,35 +1,67 @@
-import { useState } from "react";
-import ItemCount from "./ItemCount"
-import {Link} from 'react-router-dom';
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from "../Context/CartContext";
+import ItemCount from "./ItemCount";
 
-export default function ItemDetail(product, onAdd) {
+export default function ItemDetail(product) {
+  const inicial = 1;
+  const [contador, setContador] = useState(inicial);
+  const { addItem, inCart, cart } = useContext(CartContext);
+
+  const item = product.product;
+  const id = item.id;
+
   const [ocultarComponente, setOcultarComponente] = useState(false);
 
   const ocultar = () => {
-   setOcultarComponente(true)
-  }
+    setOcultarComponente(true);
+  };
 
+  const reset = () => {
+    setContador(inicial);
+  };
+
+  const onAdd = () => {
+    addItem(item, contador);
+    inCart(id);
+    reset();
+  };
 
   return (
     <>
-      {product.product && (
+      {item && (
         <div className="card border border-dark p-3 w-25">
           <img
             className="bd-placeholder-img card-img-top"
-            src={product.product.pictureUrl}
+            src={item.pictureUrl}
           ></img>
 
-          <h2 className="text-center">{product.product.title}</h2>
+          <h2 className="text-center">{item.title}</h2>
 
           <div className="card-body">
-            <h5 className="card-title">Categoria: {product.product.category}</h5>
+            <h5 className="card-title">Categoria: {item.category}</h5>
 
-            <p className="card-text">Precio: $ {product.product.price}</p>
+            <p className="card-text">Precio: $ {item.price}</p>
           </div>
-          {!ocultarComponente && <ItemCount onAdd={ocultar}></ItemCount>}
+
+          {!ocultarComponente && (
+            <ItemCount
+              contador={contador}
+              setContador={setContador}
+              ocultar={ocultar}
+              onAdd={onAdd}
+            ></ItemCount>
+          )}
           <div className="mt-3 d-flex align-items-center">
-          {ocultarComponente &&<Link to={`/cart`} className="col-md-8 offset-md-2 btn btn-primary">Ir al carrito</Link>}
-     </div>
+            {ocultarComponente && (
+              <Link
+                to={`/cart`}
+                className="col-md-8 offset-md-2 btn btn-primary"
+              >
+                Ir al carrito
+              </Link>
+            )}
+          </div>
         </div>
       )}
     </>

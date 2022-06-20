@@ -45,7 +45,7 @@ function NavBar() {
           </li>
         </ul>
       </div>
-      <CartWidget enCarrito="4" />
+      <CartWidget />
     </nav>
   );
 }

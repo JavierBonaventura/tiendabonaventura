@@ -1,21 +1,25 @@
-import React, { useState } from "react";
-
-export default function ItemCount({ onAdd }) {
-  const [contador, setContador] = useState(1);
-
+export default function ItemCount({ contador, onAdd, ocultar, setContador }) {
+  
+  const stock = 5
 
   const incrementar = () => {
+    if (contador < stock) {
     setContador(contador + 1);
-  };
+  } else {alert("No hay mas stock")};
+}
 
   const decrementar = () => {
+    if (contador > 1) {
     setContador(contador - 1);
-  };
+  }
+}
 
-
+  function agregarCarrito() {
+    onAdd();
+    ocultar();
+  }
 
   return (
-  
     <>
       <div className="d-flex justify-content-around">
         <button
@@ -35,11 +39,13 @@ export default function ItemCount({ onAdd }) {
         </button>
       </div>
       <div className="mt-3 d-flex align-items-center">
-        <button className=" col-md-8 offset-md-2 btn btn-primary " onClick={() => onAdd()}>    
-        Agregar al carrito
+        <button
+          className=" col-md-8 offset-md-2 btn btn-primary "
+          onClick={() => agregarCarrito()}
+        >
+          Agregar al carrito
         </button>
       </div>
     </>
- 
   );
 }
