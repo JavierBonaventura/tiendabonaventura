@@ -6,7 +6,7 @@ import ItemCount from "./ItemCount";
 export default function ItemDetail(product) {
   const inicial = 1;
   const [contador, setContador] = useState(inicial);
-  const { addItem, inCart, cart } = useContext(CartContext);
+  const { addItem, inCart } = useContext(CartContext);
 
   const item = product.product;
   const id = item.id;
@@ -32,6 +32,7 @@ export default function ItemDetail(product) {
       {item && (
         <div className="card border border-dark p-3 w-25">
           <img
+            alt=""
             className="bd-placeholder-img card-img-top"
             src={item.pictureUrl}
           ></img>
@@ -58,7 +59,7 @@ export default function ItemDetail(product) {
                 to={`/cart`}
                 className="col-md-8 offset-md-2 btn btn-primary"
               >
-                Ir al carrito
+                Terminar mi compra
               </Link>
             )}
           </div>

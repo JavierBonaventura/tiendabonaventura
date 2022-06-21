@@ -1,18 +1,19 @@
 export default function ItemCount({ contador, onAdd, ocultar, setContador }) {
-  
-  const stock = 5
+  const stock = 5;
 
   const incrementar = () => {
     if (contador < stock) {
-    setContador(contador + 1);
-  } else {alert("No hay mas stock")};
-}
+      setContador(contador + 1);
+    } else {
+      alert("No hay mas stock");
+    }
+  };
 
   const decrementar = () => {
     if (contador > 1) {
-    setContador(contador - 1);
-  }
-}
+      setContador(contador - 1);
+    }
+  };
 
   function agregarCarrito() {
     onAdd();
