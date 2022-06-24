@@ -31,7 +31,7 @@ export default function ItemDetail(product) {
     <>
       {item && (
         <div className="album py-5 bg-light">
-          <div className="container w-50">
+          <div className="container ">
             <div className="col">
               <div className="card shadow-sm">
                 <img
