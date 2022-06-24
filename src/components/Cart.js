@@ -9,7 +9,7 @@ export default function Cart() {
   if (cart.length < 1) {
     return (
       <>
-        <h1 className="text-center">NO HAY ITEMS EN EL CARRITO</h1>
+        <h1 className="text-center fw-light ">No hay Items en el Carrito</h1>
         <div className="text-center">
           <Link to="/" className=" btn btn-primary">
             Seguir comprando
@@ -20,48 +20,52 @@ export default function Cart() {
   } else {
     return (
       <>
-        <h1 className="text-center">
-          ITEMS EN EL CARRITO Total $ {getItemPrice()}
+        <h1 className="text-center fw-light ">
+          Items en el Carrito Total $ {getItemPrice()}
         </h1>
         <div className="text-center">
           <button
             onClick={() => {
               emptyCart();
             }}
-            className=" btn btn-primary "
+            className=" btn btn-danger my-3 "
           >
             {" "}
             Vaciar Carrito
           </button>
         </div>
-        {cart.map((item) => (
-          <div className="mt-3 d-flex justify-content-center" key={item.id}>
-            <div className="card border border-dark p-3 w-50 text-center">
-              <div>
-                <img
-                  alt=""
-                  className="bd-placeholder-img card-img-top w-25"
-                  src={item.pictureUrl}
-                ></img>
-                <h3 className="text-center">{item.title} </h3>
-                <h3 className=" text-cente text-primaryr">
-                  Cantidad {item.count}{" "}
-                </h3>
+        <div className="album py-5 bg-light">
+          <div className="container ">
+            {cart.map((item) => (
+              <div className="col mt-3 justify-content-center" key={item.id}>
+                <div className="card shadow-sm  text-center">
+                  <div>
+                    <img
+                      alt=""
+                      className="bd-placeholder-img card-img-top w-25"
+                      src={item.pictureUrl}
+                    ></img>
+                    <h3 className="text-center">{item.title} </h3>
+                    <h3 className=" text-cente text-primaryr">
+                      Cantidad {item.count}{" "}
+                    </h3>
+                  </div>
+                  <div className="d-flex justify-content-center">
+                    <button
+                      onClick={() => {
+                        deleteItem(item.id);
+                      }}
+                      className="btn btn-primary my-2"
+                    >
+                      {" "}
+                      Elminiar Producto
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div className="mt-3 d-flex align-items-center">
-                <button
-                  onClick={() => {
-                    deleteItem(item.id);
-                  }}
-                  className="col-md-8 offset-md-2 btn btn-primary "
-                >
-                  {" "}
-                  Elminiar Producto
-                </button>
-              </div>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
       </>
     );
   }

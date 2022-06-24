@@ -30,38 +30,48 @@ export default function ItemDetail(product) {
   return (
     <>
       {item && (
-        <div className="card border border-dark p-3 w-25">
-          <img
-            alt=""
-            className="bd-placeholder-img card-img-top"
-            src={item.pictureUrl}
-          ></img>
+        <div className="album py-5 bg-light">
+          <div className="container w-50">
+            <div className="col">
+              <div className="card shadow-sm">
+                <img
+                  width="100%"
+                  height="100%"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                  alt=""
+                  className=" bd-placeholder-img card-img-top"
+                  src={item.pictureUrl}
+                ></img>
 
-          <h2 className="text-center">{item.title}</h2>
+                <h2 className="text-center">{item.title}</h2>
 
-          <div className="card-body">
-            <h5 className="card-title">Categoria: {item.category}</h5>
+                <div className="card-body">
+                  <h5 className="card-title">Categoria: {item.category}</h5>
 
-            <p className="card-text">Precio: $ {item.price}</p>
-          </div>
+                  <p className="card-text">Precio: $ {item.price}</p>
+                </div>
 
-          {!ocultarComponente && (
-            <ItemCount
-              contador={contador}
-              setContador={setContador}
-              ocultar={ocultar}
-              onAdd={onAdd}
-            ></ItemCount>
-          )}
-          <div className="mt-3 d-flex align-items-center">
-            {ocultarComponente && (
-              <Link
-                to={`/cart`}
-                className="col-md-8 offset-md-2 btn btn-primary"
-              >
-                Terminar mi compra
-              </Link>
-            )}
+                {!ocultarComponente && (
+                  <ItemCount
+                    contador={contador}
+                    setContador={setContador}
+                    ocultar={ocultar}
+                    onAdd={onAdd}
+                  ></ItemCount>
+                )}
+                <div className="mt-3 d-flex align-items-center">
+                  {ocultarComponente && (
+                    <Link
+                      to={`/cart`}
+                      className="col-md-10 offset-md-1 btn btn-primary my-2"
+                    >
+                      Terminar mi compra
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}

@@ -41,7 +41,7 @@ export default function ItemCount({ contador, onAdd, ocultar, setContador }) {
       </div>
       <div className="mt-3 d-flex align-items-center">
         <button
-          className=" col-md-8 offset-md-2 btn btn-primary "
+          className=" col-md-10 offset-md-1 btn btn-primary "
           onClick={() => agregarCarrito()}
         >
           Agregar al carrito

@@ -6,47 +6,50 @@ import CartWidget from "./CartWidget";
 
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-      <img src={logo} className="" alt="logo" width={50} />
+    <>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
+          <img src={logo} className="" alt="logo" width={50} />
 
-      <Link to="/" className="navbar-brand">
-        BikeShop
-      </Link>
+          <Link to="/" className="navbar-brand">
+            BikeShop
+          </Link>
 
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarsExample03"
-        aria-controls="navbarsExample03"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-
-      <div className="collapse navbar-collapse" id="navbarsExample03">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item active"></li>
-          <li className="nav-item">
-            <Link to="/category/Bicicletas" className="nav-link">
-              Biciletas
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/category/Indumentaria" className="nav-link">
-              Indumentaria
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/category/Velocimetro" className="nav-link">
-              Velocimetros
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <CartWidget />
-    </nav>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li className="nav-item active"></li>
+              <li className="nav-item">
+                <Link to="/category/Bicicletas" className="nav-link">
+                  Biciletas
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/category/Indumentaria" className="nav-link">
+                  Indumentaria
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/category/Velocimetro" className="nav-link">
+                  Velocimetros
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <CartWidget />
+        </div>
+      </nav>
+    </>
   );
 }
 

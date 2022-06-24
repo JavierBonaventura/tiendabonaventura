@@ -24,7 +24,7 @@ function ItemListContainer(props) {
     const products = new Promise((res, rej) => {
       setTimeout(() => {
         res(BasePoroductos);
-      }, 2000);
+      }, 1000);
     });
 
     products
@@ -42,16 +42,28 @@ function ItemListContainer(props) {
 
   return (
     <>
-      <h3 className="fs-7 text text-center text-secondary p-2 "> {titulo}</h3>
-      <div className="d-flex justify-content-center">
-        {loading && <img src={logo} className="App-logo primary" alt="logo" />}
-      </div>
+      <section className="py-1 text-center container">
+        <div className="row py-lg-2">
+          <div className="col-lg-6 col-md-8 mx-auto">
+            <h1 className="fw-light "> {titulo}</h1>
+            <div className="d-flex justify-content-center">
+              {loading && (
+                <img src={logo} className="App-logo primary" alt="logo" />
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
       <div className="d-flex justify-content-center">
         {loading && <h3>Cargando ...</h3>}
       </div>
 
-      <div className="navbar-brand">
-        <ItemList products={productsFiltred} />
+      <div className="album py-5 bg-light">
+        <div className="container">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <ItemList products={productsFiltred} />
+          </div>
+        </div>
       </div>
     </>
   );
