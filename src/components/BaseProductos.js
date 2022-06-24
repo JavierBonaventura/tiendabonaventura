@@ -90,7 +90,7 @@ const BasePoroductos = [
   {
     id: "12",
     title: "DMT Zapatillas Italia 2022",
-    category: "Bicicletas",
+    category: "Indumentaria",
     price: 7200,
     pictureUrl:
       "https://www.tradeinn.com/f/13901/139013083/dmt-zapatillas-carretera-kr0-giro-ditalia-2022.jpg",
@@ -98,7 +98,7 @@ const BasePoroductos = [
   {
     id: "13",
     title: "Guantes Bora Team 2022",
-    category: "Bicicletas",
+    category: "Indumentaria",
     price: 7200,
     pictureUrl:
       "https://www.tradeinn.com/f/13792/137927661/sportful-guantes-bora-hansgrohe-race-team-2022.jpg",
