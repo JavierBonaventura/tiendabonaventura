@@ -1,7 +1,13 @@
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import logo from "../logo.svg";
-import BasePoroductos from "./BaseProductos";
 import ItemList from "./ItemList";
 
 function ItemListContainer(props) {
@@ -10,34 +16,50 @@ function ItemListContainer(props) {
   const [result, setResult] = useState([]);
   const { id } = useParams();
 
+  const db = getFirestore();
+  const productsCollection = collection(db, "productos");
+
   var productsFiltred = [];
   var titulo = "";
 
-  id == undefined
+  id === undefined
     ? (productsFiltred = result)
     : (productsFiltred = result.filter(
-        (categoria) => categoria.category == id
+        (categoria) => categoria.category === id
       ));
-  id == undefined ? (titulo = props.greeting) : (titulo = id);
+  id === undefined ? (titulo = props.greeting) : (titulo = id);
 
   useEffect(() => {
-    const products = new Promise((res, rej) => {
-      setTimeout(() => {
-        res(BasePoroductos);
-      }, 1000);
-    });
+    if (id) {
+      const q = query(productsCollection, where("category", "==", id));
+      getDocs(q)
+        .then((snapshot) => {
+          setResult(
+            snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+          );
+        })
+        .catch((error) => {
+          setError(error);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
 
-    products
-      .then((result) => {
-        setResult(result);
-      })
-      .catch((error) => {
-        setError(error);
-        console.log(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    } else {
+      
+      getDocs(productsCollection)
+        .then((snapshot) => {
+          setResult(
+            snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+          );
+        })
+        .catch((error) => {
+          setError(error);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
   }, [id]);
 
   return (
@@ -61,7 +83,7 @@ function ItemListContainer(props) {
       <div className="album py-5 bg-light">
         <div className="container">
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <ItemList products={productsFiltred} />
+            <ItemList products={result} />
           </div>
         </div>
       </div>

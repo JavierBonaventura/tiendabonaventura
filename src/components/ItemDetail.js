@@ -33,7 +33,7 @@ export default function ItemDetail(product) {
         <div className="album py-5 bg-light">
           <div className="container ">
             <div className="col">
-              <div className="card shadow-sm">
+              <div className="card shadow-sm ">
                 <img
                   width="100%"
                   height="100%"

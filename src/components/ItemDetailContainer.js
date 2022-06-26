@@ -1,7 +1,7 @@
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import logo from "../logo.svg";
-import BasePoroductos from "./BaseProductos";
 import ItemDetail from "./ItemDetail";
 
 function ItemDetailContainer() {
@@ -11,17 +11,15 @@ function ItemDetailContainer() {
   const { id } = useParams();
 
   useEffect(() => {
-    const products = new Promise((res, rej) => {
-      res(BasePoroductos);
-    });
+    const db = getFirestore();
+    const productRef = doc(db, "productos", id);
 
-    products
-      .then((productos) => {
-        setResult(productos.find((producto) => producto.id == id));
-      }) // Filtro el producto por el id
+    getDoc(productRef)
+      .then((snapshot) => {
+        setResult({ ...snapshot.data(), id: snapshot.id });
+      })
       .catch((error) => {
         setError(error);
-        console.log(error);
       })
       .finally(() => {
         setLoading(false);
