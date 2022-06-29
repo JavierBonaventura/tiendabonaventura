@@ -6,9 +6,10 @@ import { Link } from "react-router-dom";
 
 export default function CheckOut() {
 
-
+    const db = getFirestore()
+    const ordersCollection = collection(db, "orders")
     const [form, setForm] = useState({})
-    const [order, setOrderId] = useState([])
+    const [orderId, setOrderId] = useState([])
 
     const { cart, getItemPrice } = useContext(CartContext);
     
@@ -21,12 +22,14 @@ export default function CheckOut() {
         date:   Date()
     }
     console.log(order)
+    addDoc(ordersCollection, order).then(({ id})=> setOrderId(id))
    
 }
    
 function handleChange (e) {
     setForm({...form, [e.target.name]:e.target.value})
 }
+
 
 
 
