@@ -2,6 +2,7 @@ import React from 'react'
 import {CartContext} from '../Context/CartContext';
 import {useContext, useState} from 'react';
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
+import { Link } from "react-router-dom";
 
 export default function CheckOut() {
 
@@ -46,7 +47,9 @@ function handleChange (e) {
     <input type="text" className="form-control" onChange={handleChange} name="phone"  placeholder="Ingrese su numero celular"></input>
   </div>
   <div className="d-flex justify-content-center text-center">
-  <button  className="btn btn-primary m-3" onClick={handleClick}>Terminar Compra</button> 
+
+         
+          <Link to="/" className="btn btn-primary m-3" onClick={handleClick}>Terminar Compra </Link>
   </div>
   </div>
   </div>
