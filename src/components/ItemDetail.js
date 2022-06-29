@@ -31,7 +31,8 @@ export default function ItemDetail(product) {
     <>
       {item && (
         <div className="album py-5 bg-light">
-          <div className="container ">
+          <div className="">
+            <div className="miestilo">
             <div className="col">
               <div className="card shadow-sm ">
                 <img
@@ -51,6 +52,8 @@ export default function ItemDetail(product) {
 
                   <p className="card-text">Precio: $ {item.price}</p>
                 </div>
+              <div className="d-flex justify-content-center">
+                <div className="w-50 ">
 
                 {!ocultarComponente && (
                   <ItemCount
@@ -60,18 +63,21 @@ export default function ItemDetail(product) {
                     onAdd={onAdd}
                   ></ItemCount>
                 )}
-                <div className="mt-3 d-flex align-items-center">
+                <div className="d-flex justify-content-center text-center">
                   {ocultarComponente && (
                     <Link
                       to={`/cart`}
-                      className="col-md-10 offset-md-1 btn btn-primary my-2"
+                      className="btn btn-primary m-3"
                     >
                       Terminar mi compra
                     </Link>
                   )}
+                  </div>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       )}

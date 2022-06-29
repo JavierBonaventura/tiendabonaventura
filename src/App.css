@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+
+.miestilo {
+  width: 50%;
+  margin: auto;
+  width: 50%;
+  
+  }
+@media (max-width: 768px) {
+  .miestilo {
+      width: 100%;
+  }
+}

@@ -6,6 +6,7 @@ import ItemListContainer from "./components/ItemListContainer";
 import NavBar from "./components/NavBar";
 import Cart from "./components/Cart";
 import MyProvider from "./Context/CartContext";
+import CheckOut from "./components/CheckOut";
 
 
 
@@ -21,7 +22,7 @@ function App() {
     <>
     <MyProvider>
       <BrowserRouter>
-        <NavBar />
+        <NavBar />      
         <Routes>
           <Route
             path="/"
@@ -33,7 +34,7 @@ function App() {
           />
           <Route path="/item/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<Cart  />} />
-          
+          <Route path="/checkout" element={<CheckOut/>}/>
         </Routes>
       </BrowserRouter>
       </MyProvider>

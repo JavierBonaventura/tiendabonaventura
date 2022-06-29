@@ -66,6 +66,11 @@ export default function Cart() {
             ))}
           </div>
         </div>
+        <div className="text-center">
+        <Link to="/checkout" className="btn btn-success m-3">
+           Terminar Compra
+          </Link>
+          </div>
       </>
     );
   }

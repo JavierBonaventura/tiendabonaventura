@@ -35,7 +35,7 @@ function ItemDetailContainer() {
         {loading && <h3>Cargando ...</h3>}
       </div>
 
-      <div className="d-flex justify-content-center p-3">
+      <div className="">
         {result && <ItemDetail product={result} />}
       </div>
     </>

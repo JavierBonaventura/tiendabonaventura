@@ -22,7 +22,7 @@ export default function ItemCount({ contador, onAdd, ocultar, setContador }) {
 
   return (
     <>
-      <div className="d-flex justify-content-around">
+      <div className="d-flex justify-content-center text-center m-3">
         <button
           href="#"
           className={contador > 1 ? "btn btn-primary" : "btn btn-secondary"}
@@ -30,7 +30,7 @@ export default function ItemCount({ contador, onAdd, ocultar, setContador }) {
         >
           -
         </button>
-        {contador}
+        <span  className="border pl-4 pr-4" >  { contador } </span>
         <button
           href="#"
           className={contador < 5 ? "btn btn-primary" : "btn btn-secondary"}
@@ -39,9 +39,9 @@ export default function ItemCount({ contador, onAdd, ocultar, setContador }) {
           +
         </button>
       </div>
-      <div className="mt-3 d-flex align-items-center">
+      <div className="mt-3 d-flex justify-content-center m-3">
         <button
-          className=" col-md-10 offset-md-1 btn btn-primary "
+          className=" btn btn-primary "
           onClick={() => agregarCarrito()}
         >
           Agregar al carrito
