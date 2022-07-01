@@ -49,3 +49,16 @@
       width: 100%;
   }
 }
+
+
+  .ocultar {
+    display:  none !important;
+  }
+
+
+@media only screen and (min-width: 768px) {
+  .ocultar {
+    display: block !important;
+   }
+  }
+  

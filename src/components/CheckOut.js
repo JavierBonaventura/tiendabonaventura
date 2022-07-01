@@ -11,7 +11,7 @@ export default function CheckOut() {
     const [form, setForm] = useState({})
     const [orderId, setOrderId] = useState([])
 
-    const { cart, getItemPrice } = useContext(CartContext);
+    const { cart, getItemPrice, updateStock, emptyCart } = useContext(CartContext);
     
     function handleClick () {
 
@@ -21,8 +21,14 @@ export default function CheckOut() {
         total: getItemPrice(),
         date:   Date()
     }
-    console.log(order)
+    updateStock()
+    emptyCart()
+    
+
+    
+
     addDoc(ordersCollection, order).then(({ id})=> setOrderId(id))
+
    
 }
    

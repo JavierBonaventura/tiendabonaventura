@@ -4,25 +4,33 @@ import logo from "../logo.svg";
 import CartWidget from "./CartWidget";
 import Categories from "./Categories";
 
-function NavBar() {
+function NavBar(buttonClick) {
+
+  function buttonClick() {
+    document.getElementById("boton").click();
+  }
   return (
     <>
       <nav className="navbar navbar-expand-md navbar-dark bg-dark">
         <div className="container-fluid">
-          <img src={logo} className="" alt="logo" width={50} />
-
-          <Link to="/" className="navbar-brand">
-            BikeShop
+          <Link to="/">
+            <img src={logo} className="" alt="logo" width={40} />
           </Link>
 
+          <Link to="/" className="ocultar navbar-brand pl-3">
+            BikeShop
+          </Link>
           <button
+           onClick={() => buttonClick()}
+          id="boton"
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse"
-            aria-expanded="false"
+            aria-expanded="collapse"
             aria-label="Toggle navigation"
+
           >
             <span className="navbar-toggler-icon"></span>
           </button>

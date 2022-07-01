@@ -1,11 +1,23 @@
-export default function ItemCount({ contador, onAdd, ocultar, setContador }) {
-  const stock = 5;
+import {CartContext} from '../Context/CartContext';
+import {useContext, useState} from 'react';
+import {doc, collection, getFirestore, updateDoc} from 'firebase/firestore';
+
+
+export default function ItemCount({ contador, onAdd, ocultar, setContador, stock, id }) {
+
+
+  
+
+
+
+
+  
 
   const incrementar = () => {
     if (contador < stock) {
       setContador(contador + 1);
     } else {
-      alert("No hay mas stock");
+      // alert("No hay mas stock");
     }
   };
 
@@ -18,7 +30,14 @@ export default function ItemCount({ contador, onAdd, ocultar, setContador }) {
   function agregarCarrito() {
     onAdd();
     ocultar();
+  
   }
+
+if (contador > stock) { 
+  const ocultartBoton = "disabled"
+} else {
+  const ocultartBoton = "enabled"
+}
 
   return (
     <>
@@ -40,12 +59,12 @@ export default function ItemCount({ contador, onAdd, ocultar, setContador }) {
         </button>
       </div>
       <div className="mt-3 d-flex justify-content-center m-3">
-        <button
-          className=" btn btn-primary "
-          onClick={() => agregarCarrito()}
-        >
-          Agregar al carrito
-        </button>
+          <button disabled={contador>stock}
+            className=" btn btn-primary "
+            onClick={() => agregarCarrito()}
+          >
+            Agregar al carrito
+          </button>
       </div>
     </>
   );

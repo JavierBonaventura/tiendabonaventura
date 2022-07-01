@@ -51,16 +51,20 @@ export default function ItemDetail(product) {
                   <h5 className="card-title">Categoria: {item.category}</h5>
 
                   <p className="card-text">Precio: $ {item.price}</p>
+                  <p className="card-text text-secondary">Stock Disponible ({item.stock})</p>
+                  {contador<item.stock ? "" :  <p className="card-text text-danger">Se alcanzo el limite de Stock Disponible</p> }
                 </div>
               <div className="d-flex justify-content-center">
                 <div className="w-50 ">
 
                 {!ocultarComponente && (
-                  <ItemCount
+                  <ItemCount 
                     contador={contador}
                     setContador={setContador}
                     ocultar={ocultar}
                     onAdd={onAdd}
+                    stock={item.stock}
+                    id={item.id}
                   ></ItemCount>
                 )}
                 <div className="d-flex justify-content-center text-center">
