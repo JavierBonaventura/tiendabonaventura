@@ -10,6 +10,9 @@ Tienda de bicicletas, repuestos e indumentaria. Un e-commerce desarrollado compl
 * Firebase
 * React router Dom
 
+## Integracion con base de datos
+
+La aplicacion esta integrada con Firebase - Firestore para el manejo de productos, categorias y stock de los productos
 
 
 ## Scripts disponibles
@@ -29,5 +32,5 @@ Accediendo directamente al link https://tiendabonaventura.vercel.app/ podes ver 
 #
 ## GIF de navegacion del sitio
 
-![Bike Shop GIF](public/BikeShopGIF.gif)
+![Bike Shop GIF](https://raw.githubusercontent.com/javierbonaventura/tiendabonaventura/master/public/BikeShopGif.gif)
 
